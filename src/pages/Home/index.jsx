@@ -4,6 +4,7 @@ import Banner from "./Banner";
 import ClientSay from "./ClientSay";
 import Gallery from "./Gallery";
 import PopularToy from "./PopularToy";
+import ShopCategory from "./ShopCategory";
 const Home = () => {
   return (
     <div>
@@ -13,6 +14,7 @@ const Home = () => {
       </header>
       <Gallery />
       <PopularToy/>
+      <ShopCategory/>
       <ClientSay/>
       <Footer />
     </div>
