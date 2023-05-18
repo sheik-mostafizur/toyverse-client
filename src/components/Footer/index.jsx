@@ -1,4 +1,3 @@
-// (including website logo, name, copyright, some contact information, social media links, address, etc.)
 import Logo from "../../assets/logo.png";
 const Footer = () => {
   return (
@@ -66,7 +65,7 @@ const Footer = () => {
                   id="message"
                   rows="4"
                   className="block p-2.5 w-full text-sm text-primary-600 bg-primary-100 rounded-lg border border-primary-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-primary-700 dark:border-primary-600 dark:placeholder-primary-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                  placeholder="Leave a comment..."></textarea>
+                  placeholder="Leave a message..."></textarea>
               </div>
               <button type="submit" className="btn btn-primary w-full">
                 Submit

@@ -40,7 +40,7 @@ const Navbar = () => {
                   alt={user?.displayName}
                 />
               </a>
-              <Tooltip anchorSelect=".user_name" place="top">
+              <Tooltip anchorSelect=".user_name" place="bottom">
                 {user?.displayName}
               </Tooltip>
             </>
