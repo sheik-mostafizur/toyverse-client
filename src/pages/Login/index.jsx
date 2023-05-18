@@ -9,8 +9,8 @@ const Login = () => {
 
       <div className="max-w-screen-xl mx-auto px-4 my-24 grid grid-cols-1 md:grid-cols-2 items-center justify-center gap-4">
         <img
-          src="https://images.unsplash.com/photo-1463200870069-e707405e5fdf?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80"
-          alt=""
+          src="https://img.freepik.com/free-vector/children-fixing-robot-together-white-background_1308-78183.jpg?t=st=1684391046~exp=1684391646~hmac=090cbaf0ae7939c425a8de62304f37b78fe7ce2ca86d7432728126a2f4a4195a"
+          alt="Login and enter kids toy website"
         />
         <LoginForm />
       </div>

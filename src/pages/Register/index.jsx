@@ -11,7 +11,7 @@ const Register = () => {
         <div>
           <img
             src="https://img.freepik.com/free-vector/children-repairing-car-together_1308-80884.jpg?w=1380&t=st=1684391046~exp=1684391646~hmac=0f10ee659b08ab772441d257bec59c313a63f20066ba72918eba854ed489f9db"
-            alt=""
+            alt="Register and join with our kids toys"
           />
         </div>
 
