@@ -1,6 +1,6 @@
 const Gallery = () => {
   return (
-    <section className="px-4 py-4 md:py-20">
+    <section className="px-4 py-4 md:py-24">
       <h1 className="font-bold text-3xl md:text-5xl text-center mb-8">
         Toy Gallery
       </h1>
