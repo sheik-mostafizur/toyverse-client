@@ -1,7 +1,7 @@
 import Footer from "../../components/Footer";
 import Navbar from "../../components/Navbar";
 
-const AllToy = () => {
+const Blog = () => {
   return (
     <div>
       <header>
@@ -12,4 +12,4 @@ const AllToy = () => {
   );
 };
 
-export default AllToy;
+export default Blog;
