@@ -1,4 +1,5 @@
 import {useState} from "react";
+import {Tooltip} from "react-tooltip";
 import Logo from "../../assets/logo.png";
 import {Link, NavLink} from "react-router-dom";
 import {uesAuthContext} from "../../context/AuthContext";
@@ -28,16 +29,21 @@ const Navbar = () => {
             ToyV<span className="text-[#116FFF]">erse</span>
           </div>
         </Link>
-
         <div className="flex md:order-2 relative items-center">
           {user && (
-            <img
-              onClick={() => setToggleProfilePic(!toggleProfilePic)}
-              className="cursor-pointer w-10 h-10 me-3 shadow rounded-full border border-primary p-[3px]"
-              src={user?.photoURL}
-              alt={user?.displayName}
-              title={user?.displayName}
-            />
+            <>
+              <a className="user_name">
+                <img
+                  onClick={() => setToggleProfilePic(!toggleProfilePic)}
+                  className="cursor-pointer w-10 h-10 me-3 shadow rounded-full border border-primary p-[3px]"
+                  src={user?.photoURL}
+                  alt={user?.displayName}
+                />
+              </a>
+              <Tooltip anchorSelect=".user_name" place="top">
+                {user?.displayName}
+              </Tooltip>
+            </>
           )}
           {user ? (
             <div
