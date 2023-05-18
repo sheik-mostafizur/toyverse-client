@@ -3,12 +3,14 @@ import "@smastrom/react-rating/style.css";
 
 const CategoryItem = ({id, name, picture, price, rating}) => {
   return (
-    <div className="w-full bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
-      <img
-        className="p-8 h-72 rounded-t-lg"
-        src={picture}
-        alt="product image"
-      />
+    <div className="w-full bg-primary-50 border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+      <div className="bg-white w-full mb-6">
+        <img
+          className="p-8 h-72 rounded-t-lg"
+          src={picture}
+          alt="product image"
+        />
+      </div>
       <div className="px-5 pb-5">
         <h5 className="text-xl font-semibold tracking-tight text-gray-900 dark:text-white">
           {name}

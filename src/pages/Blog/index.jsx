@@ -1,5 +1,6 @@
 import Footer from "../../components/Footer";
 import Navbar from "../../components/Navbar";
+import blogData from "./blogData";
 
 const Blog = () => {
   return (
@@ -14,9 +15,7 @@ const Blog = () => {
           <div className="hero-overlay bg-opacity-60"></div>
           <div className="hero-content text-center text-white">
             <div className="max-w-md">
-              <h1 className="mb-5 text-5xl font-bold">
-                Discover the Magic of Play
-              </h1>
+              <h1 className="mb-5 text-5xl font-bold">Welcome to Blog</h1>
               <p className="mb-5">
                 Delve into the enchanting world of ToyVerse and uncover the
                 wonders of play, imagination, and endless adventures.
@@ -26,6 +25,16 @@ const Blog = () => {
           </div>
         </div>
       </header>
+      <section className="max-w-screen-xl mx-auto p-4 md:py-24 space-y-6">
+        {blogData.map(({id, question, answer}) => (
+          <div key={id} className="card bg-base-100 shadow-xl bg-primary-50">
+            <div className="card-body">
+              <h2 className="card-title">{question}</h2>
+              <p>{answer}</p>
+            </div>
+          </div>
+        ))}
+      </section>
       <Footer />
     </div>
   );
