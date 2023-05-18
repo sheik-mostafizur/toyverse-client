@@ -6,7 +6,7 @@ import MyToys from "../pages/MyToys";
 import AddAToy from "../pages/AddAToy";
 import Blog from "../pages/Blog";
 
-const router = createBrowserRouter([
+const Routes = createBrowserRouter([
   {
     path: "/",
     element: <Home />,
@@ -33,4 +33,4 @@ const router = createBrowserRouter([
     errorElement: <ErrorPage />,
   },
 ]);
-export default router;
+export default Routes;
