@@ -27,7 +27,7 @@ const Blog = () => {
       </header>
       <section className="max-w-screen-xl mx-auto p-4 md:py-24 space-y-6">
         {blogData.map(({id, question, answer}) => (
-          <div key={id} className="card bg-base-100 shadow-xl bg-primary-50">
+          <div key={id} className="card shadow-xl bg-primary-50">
             <div className="card-body">
               <h2 className="card-title">{question}</h2>
               <p>{answer}</p>

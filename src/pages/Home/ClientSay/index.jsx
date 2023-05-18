@@ -10,7 +10,7 @@ const ClientSay = () => {
         {clientSayData.map(({id, name, image, feedback, profession}) => (
           <div
             key={id}
-            className="w-full bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+            className="w-full bg-primary-50 border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
             <div className="flex flex-col items-center px-4 py-10">
               <img
                 className="w-24 h-24 mb-3 rounded-full shadow-lg"
