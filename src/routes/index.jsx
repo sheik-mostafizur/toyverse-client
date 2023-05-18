@@ -7,6 +7,7 @@ import AddAToy from "../pages/AddAToy";
 import Blog from "../pages/Blog";
 import Login from "../pages/Login";
 import Register from "../pages/Register";
+import PrivateRoute from "./PrivateRoute";
 
 const Routes = createBrowserRouter([
   {
@@ -17,32 +18,34 @@ const Routes = createBrowserRouter([
   {
     path: "/login",
     element: <Login />,
-    errorElement: <ErrorPage />,
   },
   {
     path: "/register",
     element: <Register />,
-    errorElement: <ErrorPage />,
   },
   {
     path: "/all-toys",
     element: <AllToys />,
-    errorElement: <ErrorPage />,
   },
   {
     path: "/my-toys",
-    element: <MyToys />,
-    errorElement: <ErrorPage />,
+    element: (
+      <PrivateRoute>
+        <MyToys />
+      </PrivateRoute>
+    ),
   },
   {
     path: "/add-a-toy",
-    element: <AddAToy />,
-    errorElement: <ErrorPage />,
+    element: (
+      <PrivateRoute>
+        <AddAToy />
+      </PrivateRoute>
+    ),
   },
   {
     path: "/blog",
     element: <Blog />,
-    errorElement: <ErrorPage />,
   },
 ]);
 export default Routes;
