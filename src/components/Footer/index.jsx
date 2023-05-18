@@ -51,8 +51,8 @@ const Footer = () => {
                 <input
                   type="email"
                   id="email"
-                  className="bg-primary-100 border border-primary-300 text-primary-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-primary-700 dark:border-primary-600 dark:placeholder-primary-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                  placeholder="name@email.com"
+                  className="bg-primary-100 border border-primary-300 text-primary-600 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-primary-700 dark:border-primary-600 dark:placeholder-primary-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                  placeholder="Email"
                   required
                 />
               </div>
@@ -65,7 +65,7 @@ const Footer = () => {
                 <textarea
                   id="message"
                   rows="4"
-                  className="block p-2.5 w-full text-sm text-primary-900 bg-primary-100 rounded-lg border border-primary-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-primary-700 dark:border-primary-600 dark:placeholder-primary-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                  className="block p-2.5 w-full text-sm text-primary-600 bg-primary-100 rounded-lg border border-primary-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-primary-700 dark:border-primary-600 dark:placeholder-primary-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                   placeholder="Leave a comment..."></textarea>
               </div>
               <button type="submit" className="btn btn-primary w-full">

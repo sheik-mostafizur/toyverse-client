@@ -108,6 +108,33 @@ const Navbar = () => {
                 All Toys
               </NavLink>
             </li>
+            <li>
+              <NavLink
+                to="/my-toys"
+                className={({isActive, isPending}) =>
+                  isPending ? navLinkStyle : isActive ? navLinkStyleActive : ""
+                }>
+                My Toys
+              </NavLink>
+            </li>
+            <li>
+              <NavLink
+                to="/add-a-toy"
+                className={({isActive, isPending}) =>
+                  isPending ? navLinkStyle : isActive ? navLinkStyleActive : ""
+                }>
+                Add A Toys
+              </NavLink>
+            </li>
+            <li>
+              <NavLink
+                to="/blog"
+                className={({isActive, isPending}) =>
+                  isPending ? navLinkStyle : isActive ? navLinkStyleActive : ""
+                }>
+                Blog
+              </NavLink>
+            </li>
           </ul>
         </div>
       </div>
