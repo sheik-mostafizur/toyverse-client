@@ -129,7 +129,7 @@ const Navbar = () => {
                 className={({isActive, isPending}) =>
                   isPending ? navLinkStyle : isActive ? navLinkStyleActive : ""
                 }>
-                Add A Toys
+                Add A Toy
               </NavLink>
             </li>
             <li>
