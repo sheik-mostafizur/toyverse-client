@@ -56,14 +56,14 @@ const MyToys = () => {
     }
   };
 
-  useTitle('My Toys')
+  useTitle("My Toys");
   return (
     <div>
       <header>
         <Navbar />
       </header>
       <div className="max-w-screen-xl mx-auto my-6 p-4 md:my-24">
-        <Toaster />
+        <Toaster position="top-right" reverseOrder={false} />
         {myToys.length > 0 ? (
           ""
         ) : (

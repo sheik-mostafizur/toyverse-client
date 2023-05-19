@@ -28,7 +28,7 @@ const ShopCategory = () => {
       <h1 className="font-bold text-3xl md:text-5xl text-center mb-8">
         Shop by category
       </h1>
-      <Toaster />
+      <Toaster position="top-right" reverseOrder={false} />
 
       <Tabs>
         <TabList>

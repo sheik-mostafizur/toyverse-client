@@ -1,10 +1,10 @@
-import {useState} from "react";
 import toast, {Toaster} from "react-hot-toast";
 import {useForm} from "react-hook-form";
-import Creatable from "react-select/creatable";
 import {uesAuthContext} from "../../context/AuthContext";
+import {useNavigate} from "react-router-dom";
 
 const EditForm = ({loadedToy}) => {
+  const navigator = useNavigate();
   const {
     _id,
     toy_name,
@@ -12,39 +12,10 @@ const EditForm = ({loadedToy}) => {
     rating,
     quantity,
     photo_url,
-    categories: loadedCategories,
+    categories,
     description,
   } = loadedToy;
-
   const {user} = uesAuthContext();
-  const [categories, setCategories] = useState(null);
-  const setCategoryOptions = [
-    {value: "sports car", label: "Sports Car"},
-    {value: "truck", label: "Truck"},
-    {value: "regular car", label: "Regular Car"},
-    {value: "mini fire", label: "Mini Fire Truck"},
-    {value: "mini police car", label: "Mini Police Car"},
-    {value: "vintage cars", label: "Vintage Cars"},
-    {value: "muscle cars", label: "Muscle Cars"},
-    {value: "off-road vehicles", label: "Off-Road Vehicles"},
-    {value: "race cars", label: "Race Cars"},
-    {value: "luxury cars", label: "Luxury Cars"},
-    {value: "construction vehicles", label: "Construction Vehicles"},
-    {value: "emergency vehicles", label: "Emergency Vehicles"},
-    {value: "monster trucks", label: "Monster Trucks"},
-    {value: "suvs and crossovers", label: "Suvs And Crossovers"},
-    {value: "convertibles", label: "Convertibles"},
-    {value: "police cars", label: "Police Cars"},
-    {value: "fire trucks", label: "Fire Trucks"},
-    {value: "ambulances", label: "Ambulances"},
-    {value: "taxis", label: "Taxis"},
-    {value: "delivery trucks", label: "Delivery Trucks"},
-    {value: "farm vehicles", label: "Farm Vehicles"},
-    {value: "public service vehicles", label: "Public Service Vehicles"},
-    {value: "military vehicles", label: "Military Vehicles"},
-    {value: "electric cars", label: "Electric Cars"},
-    {value: "concept cars", label: "Concept Cars"},
-  ];
   const {
     register,
     handleSubmit,
@@ -53,7 +24,6 @@ const EditForm = ({loadedToy}) => {
 
   // form handle here
   const onSubmit = (data) => {
-    data.categories = categories;
     fetch(`http://localhost:3001/toy/${_id}/edit`, {
       method: "PATCH",
       headers: {
@@ -65,13 +35,14 @@ const EditForm = ({loadedToy}) => {
       .then((data) => {
         if (data.modifiedCount > 0) {
           toast.success("Update Successfully!");
+          setTimeout(() => navigator("/my-toys"), 500);
         }
       });
   };
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
-      <Toaster />
+      <Toaster position="top-right" reverseOrder={false} />
       {errors.exampleRequired && <span>This field is required</span>}
       <div className="grid gap-6 mb-6 md:grid-cols-2">
         <div>
@@ -193,15 +164,33 @@ const EditForm = ({loadedToy}) => {
             className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
             Sub category
           </label>
-          <Creatable
-            id="countries"
-            className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-            defaultValue={loadedCategories}
-            onChange={setCategories}
-            options={setCategoryOptions}
-            isMulti
-            required
-          />
+          <select
+            {...register("categories")}
+            defaultValue={categories}
+            id="categories"
+            className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+            <option value="sports car">Sports Car</option>
+            <option value="race cars">Race Cars</option>
+            <option value="regular car">Regular Car</option>
+            <option value="muscle cars">Muscle Cars</option>
+            <option value="classic cars">Classic Cars</option>
+            <option value="luxury cars">Luxury Cars</option>
+            <option value="convertible cars">Convertible Cars</option>
+            <option value="sedans">Sedans</option>
+            <option value="suvs">SUVs</option>
+            <option value="monster trucks">Monster Trucks</option>
+            <option value="police cars">Police Cars</option>
+            <option value="fire trucks">Fire Trucks</option>
+            <option value="ambulances">Ambulances</option>
+            <option value="construction vehicles">Construction Vehicles</option>
+            <option value="tractors">Tractors</option>
+            <option value="buses">Buses</option>
+            <option value="taxis">Taxis</option>
+            <option value="delivery trucks">Delivery Trucks</option>
+            <option value="mini fire truck">Mini Fire Truck</option>
+            <option value="trucks">Trucks</option>
+            <option value="sports utility trucks">Sports Utility Trucks</option>
+          </select>
         </div>
       </div>
       <div className="mb-6">

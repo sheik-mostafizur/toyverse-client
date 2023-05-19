@@ -39,7 +39,7 @@ const ShowToys = ({toys}) => {
                   {name}
                 </th>
                 <td className="px-6 py-4">{toy_name}</td>
-                <td className="px-6 py-4 max-w-xl">{categories?.label}</td>
+                <td className="px-6 py-4 max-w-xl capitalize">{categories}</td>
                 <td className="px-6 py-4">${price}</td>
                 <td className="px-6 py-4">{quantity}</td>
                 <td className="px-6 py-4">
