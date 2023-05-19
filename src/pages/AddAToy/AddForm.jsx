@@ -1,11 +1,12 @@
 import {useState} from "react";
+import toast, {Toaster} from "react-hot-toast";
 import {useForm} from "react-hook-form";
 import Creatable from "react-select/creatable";
 import {uesAuthContext} from "../../context/AuthContext";
 
 const AddForm = () => {
   const {user} = uesAuthContext();
-  
+
   const [categories, setCategories] = useState(null);
   const setCategoryOptions = [
     {value: "sports car", label: "Sports Car"},
@@ -38,7 +39,7 @@ const AddForm = () => {
     register,
     handleSubmit,
     formState: {errors},
-    reset
+    reset,
   } = useForm();
 
   // form handle here
@@ -54,13 +55,15 @@ const AddForm = () => {
       .then((res) => res.json())
       .then((data) => {
         if (data.insertedId) {
-          alert("Service bookings added");
+          toast.success("Toy Add Successfully!");
           reset();
         }
       });
   };
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
+      <Toaster />
+
       {errors.exampleRequired && <span>This field is required</span>}
 
       <div className="grid gap-6 mb-6 md:grid-cols-2">

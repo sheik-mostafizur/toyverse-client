@@ -1,10 +1,13 @@
 import {Tab, TabList, TabPanel, Tabs} from "react-tabs";
 import "react-tabs/style/react-tabs.css";
+import toast, {Toaster} from "react-hot-toast";
 import CategoryItem from "./CategoryItem";
 import {useEffect, useState} from "react";
 import LoaderSpinner from "../../../components/LoaderSpinner";
+import {uesAuthContext} from "../../../context/AuthContext";
 
 const ShopCategory = () => {
+  const {user} = uesAuthContext();
   const [loading, setLoading] = useState(true);
   const [toyData, setToyData] = useState([]);
   useEffect(() => {
@@ -15,11 +18,18 @@ const ShopCategory = () => {
         setLoading(false);
       });
   });
+  const handleViewDetails = () => {
+    if (!user?.email) {
+      return toast.error("Please login!");
+    }
+  };
   return (
     <div className="max-w-screen-xl mx-auto px-4 py-24">
       <h1 className="font-bold text-3xl md:text-5xl text-center mb-8">
         Shop by category
       </h1>
+      <Toaster />
+
       <Tabs>
         <TabList>
           {loading ? (
@@ -42,6 +52,7 @@ const ShopCategory = () => {
                     picture={data[0].picture}
                     price={data[0].price}
                     rating={data[0].rating}
+                    handleViewDetails={handleViewDetails}
                   />
                   <CategoryItem
                     id={data[1].id}
@@ -49,6 +60,7 @@ const ShopCategory = () => {
                     picture={data[1].picture}
                     price={data[1].price}
                     rating={data[1].rating}
+                    handleViewDetails={handleViewDetails}
                   />
                 </div>
               </TabPanel>

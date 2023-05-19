@@ -1,4 +1,5 @@
 import {useEffect, useState} from "react";
+import toast, {Toaster} from "react-hot-toast";
 import Footer from "../../components/Footer";
 import Navbar from "../../components/Navbar";
 import LoaderSpinner from "../../components/LoaderSpinner";
@@ -18,7 +19,7 @@ const MyToys = () => {
         setMyToys(data);
         setLoading(false);
       });
-  }, []);
+  }, [user?.email]);
 
   const handleDelete = (_id) => {
     const proceed = confirm("Are Your sure you want to delete?");
@@ -34,6 +35,7 @@ const MyToys = () => {
               (booking) => booking._id !== _id
             );
             setMyToys(remainingToy);
+            toast.error("Delete Successfully!");
           }
         });
     }
@@ -43,19 +45,26 @@ const MyToys = () => {
       <header>
         <Navbar />
       </header>
-      <div className="my-6 md:my-24">
+      <div className="max-w-screen-xl mx-auto my-6 p-4 md:my-24">
+        <Toaster />
         {myToys.length > 0 ? (
           ""
         ) : (
           <>
-            <h1 className="font-bold text-3xl md:text-5xl text-center my-6 text-primary-600">
-              Toy is not found. Please add a toy.
-            </h1>
-            <Link to="/add-a-toy">
-              <button className="btn btn-primary block mx-auto">
-                Add a toy
-              </button>
-            </Link>
+            {loading ? (
+              ""
+            ) : (
+              <>
+                <h1 className="font-bold text-3xl md:text-5xl text-center my-6 text-primary-600">
+                  Toy is not found. Please add a toy.
+                </h1>
+                <Link to="/add-a-toy">
+                  <button className="btn btn-primary block mx-auto">
+                    Add a toy
+                  </button>
+                </Link>
+              </>
+            )}
           </>
         )}
         {loading ? (

@@ -1,6 +1,13 @@
 import {Rating} from "@smastrom/react-rating";
 
-const CategoryItem = ({id, name, picture, price, rating}) => {
+const CategoryItem = ({
+  _id,
+  name,
+  picture,
+  price,
+  rating,
+  handleViewDetails,
+}) => {
   return (
     <div className="w-full bg-primary-50 border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
       <div className="bg-white w-full mb-6">
@@ -24,9 +31,11 @@ const CategoryItem = ({id, name, picture, price, rating}) => {
           <span className="text-3xl font-bold text-gray-900 dark:text-white">
             ${price}
           </span>
-          <a href="#" className="btn btn-primary">
+          <button
+            onClick={() => handleViewDetails(_id)}
+            className="btn btn-primary">
             View Details
-          </a>
+          </button>
         </div>
       </div>
     </div>

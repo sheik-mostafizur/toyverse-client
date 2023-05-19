@@ -114,24 +114,37 @@ const Navbar = () => {
                 All Toys
               </NavLink>
             </li>
-            <li>
-              <NavLink
-                to="/my-toys"
-                className={({isActive, isPending}) =>
-                  isPending ? navLinkStyle : isActive ? navLinkStyleActive : ""
-                }>
-                My Toys
-              </NavLink>
-            </li>
-            <li>
-              <NavLink
-                to="/add-a-toy"
-                className={({isActive, isPending}) =>
-                  isPending ? navLinkStyle : isActive ? navLinkStyleActive : ""
-                }>
-                Add A Toy
-              </NavLink>
-            </li>
+            {user?.email && (
+              <>
+                <li>
+                  <NavLink
+                    to="/my-toys"
+                    className={({isActive, isPending}) =>
+                      isPending
+                        ? navLinkStyle
+                        : isActive
+                        ? navLinkStyleActive
+                        : ""
+                    }>
+                    My Toys
+                  </NavLink>
+                </li>
+                <li>
+                  <NavLink
+                    to="/add-a-toy"
+                    className={({isActive, isPending}) =>
+                      isPending
+                        ? navLinkStyle
+                        : isActive
+                        ? navLinkStyleActive
+                        : ""
+                    }>
+                    Add A Toy
+                  </NavLink>
+                </li>
+              </>
+            )}
+
             <li>
               <NavLink
                 to="/blog"

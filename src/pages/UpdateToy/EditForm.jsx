@@ -1,11 +1,10 @@
 import {useState} from "react";
+import toast, {Toaster} from "react-hot-toast";
 import {useForm} from "react-hook-form";
 import Creatable from "react-select/creatable";
 import {uesAuthContext} from "../../context/AuthContext";
-import {useNavigate} from "react-router-dom";
 
 const EditForm = ({loadedToy}) => {
-  const navigator = useNavigate();
   const {
     _id,
     toy_name,
@@ -65,16 +64,15 @@ const EditForm = ({loadedToy}) => {
       .then((res) => res.json())
       .then((data) => {
         if (data.modifiedCount > 0) {
-          alert("Update successfully.");
-          navigator("/my-toys");
+          toast.success("Update Successfully!");
         }
       });
   };
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
+      <Toaster />
       {errors.exampleRequired && <span>This field is required</span>}
-
       <div className="grid gap-6 mb-6 md:grid-cols-2">
         <div>
           <label
