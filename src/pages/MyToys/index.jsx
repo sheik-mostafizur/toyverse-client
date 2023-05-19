@@ -33,7 +33,6 @@ const MyToys = () => {
   const handleSort = () => {
     const sorted = isSorted ? "asc" : "desc";
     fetchToys(sorted);
-    alert(`${isSorted} ${sorted}`);
     return setIsSorted(!isSorted);
   };
 

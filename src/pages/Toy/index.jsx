@@ -47,15 +47,7 @@ const Toy = () => {
             <b>Quantity:</b> {quantity}
           </p>
           <p>
-            <b>Categories:</b>{" "}
-            {categories &&
-              categories.map(({label}) => (
-                <span
-                  key={Math.random()}
-                  className="bg-blue-100 text-blue-800 text-xs font-medium mr-2 px-2.5 py-0.5 rounded dark:bg-blue-900 dark:text-blue-300">
-                  {label}
-                </span>
-              ))}
+            <b>Categories:</b> {categories?.label}
           </p>
           <p>
             <b>Description:</b> {description}

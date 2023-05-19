@@ -1,7 +1,7 @@
 import {useState} from "react";
 import toast, {Toaster} from "react-hot-toast";
 import {useForm} from "react-hook-form";
-import Creatable from "react-select/creatable";
+import Select from "react-select";
 import {uesAuthContext} from "../../context/AuthContext";
 
 const AddForm = () => {
@@ -10,30 +10,26 @@ const AddForm = () => {
   const [categories, setCategories] = useState(null);
   const setCategoryOptions = [
     {value: "sports car", label: "Sports Car"},
-    {value: "truck", label: "Truck"},
-    {value: "regular car", label: "Regular Car"},
-    {value: "mini fire", label: "Mini Fire Truck"},
-    {value: "mini police car", label: "Mini Police Car"},
-    {value: "vintage cars", label: "Vintage Cars"},
-    {value: "muscle cars", label: "Muscle Cars"},
-    {value: "off-road vehicles", label: "Off-Road Vehicles"},
     {value: "race cars", label: "Race Cars"},
+    {value: "regular car", label: "Regular Car"},
+    {value: "muscle cars", label: "Muscle Cars"},
+    {value: "classic cars", label: "Classic Cars"},
     {value: "luxury cars", label: "Luxury Cars"},
-    {value: "construction vehicles", label: "Construction Vehicles"},
-    {value: "emergency vehicles", label: "Emergency Vehicles"},
+    {value: "convertible cars", label: "Convertible Cars"},
+    {value: "sedans", label: "Sedans"},
+    {value: "suvs", label: "SUVs"},
     {value: "monster trucks", label: "Monster Trucks"},
-    {value: "suvs and crossovers", label: "Suvs And Crossovers"},
-    {value: "convertibles", label: "Convertibles"},
     {value: "police cars", label: "Police Cars"},
     {value: "fire trucks", label: "Fire Trucks"},
     {value: "ambulances", label: "Ambulances"},
+    {value: "construction vehicles", label: "Construction Vehicles"},
+    {value: "tractors", label: "Tractors"},
+    {value: "buses", label: "Buses"},
     {value: "taxis", label: "Taxis"},
     {value: "delivery trucks", label: "Delivery Trucks"},
-    {value: "farm vehicles", label: "Farm Vehicles"},
-    {value: "public service vehicles", label: "Public Service Vehicles"},
-    {value: "military vehicles", label: "Military Vehicles"},
-    {value: "electric cars", label: "Electric Cars"},
-    {value: "concept cars", label: "Concept Cars"},
+    {value: "mini fire truck", label: "Mini Fire Truck"},
+    {value: "trucks", label: "Trucks"},
+    {value: "sports utility trucks", label: "Sports Utility Trucks"},
   ];
   const {
     register,
@@ -181,13 +177,12 @@ const AddForm = () => {
             className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
             Sub category
           </label>
-          <Creatable
+          <Select
             id="countries"
             className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
             defaultValue={categories}
             onChange={setCategories}
             options={setCategoryOptions}
-            isMulti
             required
           />
         </div>
