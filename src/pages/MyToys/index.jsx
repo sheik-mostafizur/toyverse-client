@@ -16,10 +16,9 @@ const MyToys = () => {
 
   const fetchToys = async (sortOrder) => {
     const sortValue = sortOrder ? `&sortOrder=${sortOrder}` : "";
+    const URL = `http://localhost:3001/my-toys?email=${user?.email}${sortValue}`;
 
-    const response = await fetch(
-      `http://localhost:3001/my-toys?email=${user?.email}${sortValue}`
-    );
+    const response = await fetch(URL);
     const data = await response.json();
 
     setMyToys(data);
