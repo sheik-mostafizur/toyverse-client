@@ -40,11 +40,12 @@ const ShowToys = ({toys}) => {
                 </th>
                 <td className="px-6 py-4">{toy_name}</td>
                 <td className="px-6 py-4 max-w-xl">
-                  {categories.map((category) => (
-                    <span key={_id + `${Math.random()}`}>
-                      {category.label},{" "}
-                    </span>
-                  ))}
+                  {categories &&
+                    categories.map((category) => (
+                      <span key={_id + `${Math.random()}`}>
+                        {category.label},{" "}
+                      </span>
+                    ))}
                 </td>
                 <td className="px-6 py-4">${price}</td>
                 <td className="px-6 py-4">{quantity}</td>

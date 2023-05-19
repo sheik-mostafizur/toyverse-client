@@ -9,24 +9,26 @@ import useTitle from "../../hooks/useTitle";
 const AllToys = () => {
   const [loading, setLoading] = useState(true);
   const [toys, setToys] = useState([]);
+  const [searchToy, setSearchToy] = useState("");
 
   useEffect(() => {
-    fetch("http://localhost:3001/toys")
+    const toyName = searchToy ? `?toyName=${searchToy}` : "";
+    fetch(`http://localhost:3001/toys${toyName}`)
       .then((res) => res.json())
       .then((data) => {
         setToys(data);
         setLoading(false);
       });
-  }, []);
+  }, [searchToy]);
 
-  useTitle("All Toys")
+  useTitle("All Toys");
   return (
     <div>
       <header>
         <Navbar />
       </header>
       <section className="max-w-screen-xl mx-auto p-4 md:py-24">
-        <Search />
+        <Search setSearchToy={setSearchToy} />
         <div className="my-6">
           {loading ? <LoaderSpinner /> : <ShowToys toys={toys} />}
         </div>
