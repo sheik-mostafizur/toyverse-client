@@ -38,12 +38,12 @@ const AddForm = () => {
     register,
     handleSubmit,
     formState: {errors},
+    reset
   } = useForm();
 
   // form handle here
   const onSubmit = (data) => {
     data.categories = categories;
-    console.log(data);
     fetch("http://localhost:3001/toys", {
       method: "POST",
       headers: {
@@ -53,9 +53,9 @@ const AddForm = () => {
     })
       .then((res) => res.json())
       .then((data) => {
-        console.log(data);
         if (data.insertedId) {
           alert("Service bookings added");
+          reset();
         }
       });
   };
