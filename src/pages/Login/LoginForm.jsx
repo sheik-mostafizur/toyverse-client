@@ -1,11 +1,14 @@
 import {useState} from "react";
-import {Link, useNavigate} from "react-router-dom";
+import {Link, useLocation, useNavigate} from "react-router-dom";
 
 import {uesAuthContext} from "../../context/AuthContext";
 const LoginForm = () => {
   const {logInUser, logInUserWithGoogle} = uesAuthContext();
   const [error, setError] = useState("");
   const navigate = useNavigate();
+
+  const location = useLocation();
+  const from = location.state?.from?.pathname || "/";
 
   const handleLogin = (event) => {
     event.preventDefault();
@@ -19,7 +22,7 @@ const LoginForm = () => {
       .then(() => {
         setError("");
         form.reset();
-        navigate("/");
+        navigate(from, {replace: true});
       })
       .catch((error) => setError(error.message));
   };
@@ -29,7 +32,7 @@ const LoginForm = () => {
     logInUserWithGoogle()
       .then(() => {
         setError("");
-        navigate("/");
+        navigate(from, {replace: true});
       })
       .catch((error) => setError(error.message));
   };

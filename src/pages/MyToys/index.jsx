@@ -40,6 +40,11 @@ const MyToys = () => {
         });
     }
   };
+
+  const handleSort = () => {
+    alert("Sort");
+  };
+
   return (
     <div>
       <header>
@@ -71,7 +76,11 @@ const MyToys = () => {
           <LoaderSpinner />
         ) : (
           myToys.length > 0 && (
-            <ShowMyToys myToys={myToys} handleDelete={handleDelete} />
+            <ShowMyToys
+              myToys={myToys}
+              handleDelete={handleDelete}
+              handleSort={handleSort}
+            />
           )
         )}
       </div>

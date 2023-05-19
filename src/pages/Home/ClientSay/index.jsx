@@ -9,6 +9,7 @@ const ClientSay = () => {
       <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
         {clientSayData.map(({id, name, image, feedback, profession}) => (
           <div
+            data-aos="fade-up"
             key={id}
             className="w-full bg-primary-50 border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
             <div className="flex flex-col items-center px-4 py-10">
