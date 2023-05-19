@@ -1,6 +1,6 @@
 import {Link} from "react-router-dom";
 
-const ShowMyToys = ({myToys}) => {
+const ShowMyToys = ({myToys, handleDelete}) => {
   return (
     <div className="relative overflow-x-auto shadow-md sm:rounded-lg">
       <table className="w-full text-sm text-left text-gray-500 dark:text-gray-400">
@@ -50,11 +50,11 @@ const ShowMyToys = ({myToys}) => {
                   <td className="px-6 py-4">{quantity}</td>
                   <td className="px-6 py-4">{description.slice(0, 25)}...</td>
                   <td className="px-6 py-4">
-                    <Link
-                      to={`/delete-toy/${_id}`}
+                    <button
+                    onClick={()=> handleDelete(_id)}
                       className="font-medium text-primary-600 dark:text-primary-500 hover:underline">
                       Delete
-                    </Link>
+                    </button>
                     <Link
                       to={`/toy/${_id}/edit`}
                       className="mx-2 font-medium text-blue-600 dark:text-blue-500 hover:underline">
