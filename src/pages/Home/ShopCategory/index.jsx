@@ -5,24 +5,44 @@ import CategoryItem from "./CategoryItem";
 import {useEffect, useState} from "react";
 import LoaderSpinner from "../../../components/LoaderSpinner";
 import {uesAuthContext} from "../../../context/AuthContext";
+import {useNavigate} from "react-router-dom";
 
 const ShopCategory = () => {
+  const navigate = useNavigate();
   const {user} = uesAuthContext();
   const [loading, setLoading] = useState(true);
-  const [toyData, setToyData] = useState([]);
-  useEffect(() => {
-    fetch("toyData.json")
-      .then((res) => res.json())
-      .then((data) => {
-        setToyData(data);
-        setLoading(false);
-      });
-  });
-  const handleViewDetails = () => {
+  const [loadedToyData, setLoadedToyData] = useState([]);
+  const [categories, setCategories] = useState([]);
+
+  const handleViewDetails = (_id) => {
     if (!user?.email) {
       return toast.error("Please login!");
+    } else {
+      navigate(`/toy/${_id}`);
     }
   };
+
+  useEffect(() => {
+    fetch("http://localhost:3001/toys")
+      .then((res) => res.json())
+      .then((data) => {
+        const uniqueCategories = data.reduce((accumulator, item) => {
+          if (
+            !accumulator.find(
+              (element) => element.categories === item.categories
+            )
+          ) {
+            accumulator.push({id: item._id, categories: item.categories});
+          }
+          return accumulator;
+        }, []);
+
+        setCategories(uniqueCategories);
+        setLoadedToyData(data);
+        setLoading(false);
+      });
+  }, []);
+
   return (
     <div className="max-w-screen-xl mx-auto px-4 py-24">
       <h1 className="font-bold text-3xl md:text-5xl text-center mb-8">
@@ -35,33 +55,37 @@ const ShopCategory = () => {
           {loading ? (
             <LoaderSpinner />
           ) : (
-            toyData.map(({id, title}) => <Tab key={id}>{title}</Tab>)
+            categories &&
+            categories.map((item) => (
+              <Tab key={item._id + "" + Math.random()}>
+                <span className="capitalize">{item.categories}</span>
+              </Tab>
+            ))
           )}
         </TabList>
         {loading ? (
           <LoaderSpinner />
         ) : (
-          toyData.map((item) => {
-            const {data, id} = item;
+          categories.map((item) => {
+            const {_id, categories} = item;
             return (
-              <TabPanel key={id}>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                  <CategoryItem
-                    id={data[0].id}
-                    name={data[0].name}
-                    picture={data[0].picture}
-                    price={data[0].price}
-                    rating={data[0].rating}
-                    handleViewDetails={handleViewDetails}
-                  />
-                  <CategoryItem
-                    id={data[1].id}
-                    name={data[1].name}
-                    picture={data[1].picture}
-                    price={data[1].price}
-                    rating={data[1].rating}
-                    handleViewDetails={handleViewDetails}
-                  />
+              <TabPanel key={_id + "" + Math.random()}>
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                  {loadedToyData.map((item) => {
+                    if (categories === item.categories) {
+                      return (
+                        <CategoryItem
+                          key={item._id + "" + Math.random()}
+                          _id={item._id}
+                          name={item.name}
+                          picture={item.photo_url}
+                          price={item.price}
+                          rating={item.rating}
+                          handleViewDetails={handleViewDetails}
+                        />
+                      );
+                    }
+                  })}
                 </div>
               </TabPanel>
             );
