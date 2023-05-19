@@ -1,5 +1,4 @@
 import {Rating} from "@smastrom/react-rating";
-import "@smastrom/react-rating/style.css";
 
 const CategoryItem = ({id, name, picture, price, rating}) => {
   return (

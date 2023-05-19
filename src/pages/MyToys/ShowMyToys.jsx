@@ -52,13 +52,18 @@ const ShowMyToys = ({myToys}) => {
                   <td className="px-6 py-4">
                     <Link
                       to={`/toy/${_id}`}
-                      className="me-2 font-medium text-primary-600 dark:text-primary-500 hover:underline">
+                      className="font-medium text-primary-600 dark:text-primary-500 hover:underline">
                       Delete
                     </Link>
                     <Link
                       to={`/toy/${_id}`}
-                      className="font-medium text-blue-600 dark:text-blue-500 hover:underline">
+                      className="mx-2 font-medium text-blue-600 dark:text-blue-500 hover:underline">
                       Edit
+                    </Link>
+                    <Link
+                      to={`/toy/${_id}`}
+                      className="font-medium text-blue-600 dark:text-blue-500 hover:underline">
+                      View
                     </Link>
                   </td>
                 </tr>
