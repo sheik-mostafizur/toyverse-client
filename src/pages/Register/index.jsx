@@ -1,8 +1,10 @@
 import Footer from "../../components/Footer";
 import Navbar from "../../components/Navbar";
+import useTitle from "../../hooks/useTitle";
 import RegisterForm from "./RegisterForm";
 
 const Register = () => {
+  useTitle("Register a new User")
   return (
     <>
       <Navbar />

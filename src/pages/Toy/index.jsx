@@ -2,6 +2,7 @@ import {useLoaderData} from "react-router-dom";
 import Footer from "../../components/Footer";
 import Navbar from "../../components/Navbar";
 import {Rating} from "@smastrom/react-rating";
+import useTitle from "../../hooks/useTitle";
 
 const Toy = () => {
   const loadedToy = useLoaderData();
@@ -16,6 +17,7 @@ const Toy = () => {
     categories,
     description,
   } = loadedToy;
+  useTitle(toy_name)
   return (
     <div>
       <header>

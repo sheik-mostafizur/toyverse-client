@@ -1,8 +1,10 @@
 import Footer from "../../components/Footer";
 import Navbar from "../../components/Navbar";
+import useTitle from "../../hooks/useTitle";
 import blogData from "./blogData";
 
 const Blog = () => {
+  useTitle("Blog")
   return (
     <div>
       <header>

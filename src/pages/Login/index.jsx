@@ -1,8 +1,10 @@
 import Footer from "../../components/Footer";
 import Navbar from "../../components/Navbar";
+import useTitle from "../../hooks/useTitle";
 import LoginForm from "./LoginForm";
 
 const Login = () => {
+  useTitle("Login user")
   return (
     <>
       <Navbar />

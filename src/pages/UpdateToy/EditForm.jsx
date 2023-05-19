@@ -200,6 +200,7 @@ const EditForm = ({loadedToy}) => {
             onChange={setCategories}
             options={setCategoryOptions}
             isMulti
+            required
           />
         </div>
       </div>

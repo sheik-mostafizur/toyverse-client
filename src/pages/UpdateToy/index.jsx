@@ -2,9 +2,11 @@ import {useLoaderData} from "react-router-dom";
 import Footer from "../../components/Footer";
 import Navbar from "../../components/Navbar";
 import EditForm from "./EditForm";
+import useTitle from "../../hooks/useTitle";
 
 const UpdateToy = () => {
   const loadedToy = useLoaderData();
+  useTitle("Edit a Toy")
   return (
     <div>
       <header>

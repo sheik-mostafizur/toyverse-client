@@ -4,6 +4,7 @@ import Navbar from "../../components/Navbar";
 import Search from "./Search";
 import ShowToys from "./ShowToys";
 import LoaderSpinner from "../../components/LoaderSpinner";
+import useTitle from "../../hooks/useTitle";
 
 const AllToys = () => {
   const [loading, setLoading] = useState(true);
@@ -18,6 +19,7 @@ const AllToys = () => {
       });
   }, []);
 
+  useTitle("All Toys")
   return (
     <div>
       <header>

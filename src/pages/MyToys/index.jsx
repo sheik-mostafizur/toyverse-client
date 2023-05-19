@@ -6,20 +6,36 @@ import LoaderSpinner from "../../components/LoaderSpinner";
 import ShowMyToys from "./ShowMyToys";
 import {Link} from "react-router-dom";
 import {uesAuthContext} from "../../context/AuthContext";
+import useTitle from "../../hooks/useTitle";
 
 const MyToys = () => {
   const {user} = uesAuthContext();
   const [loading, setLoading] = useState(true);
   const [myToys, setMyToys] = useState([]);
+  const [isSorted, setIsSorted] = useState(true);
+
+  const fetchToys = async (sortOrder) => {
+    const sortValue = sortOrder ? `&sortOrder=${sortOrder}` : "";
+
+    const response = await fetch(
+      `http://localhost:3001/my-toys?email=${user?.email}${sortValue}`
+    );
+    const data = await response.json();
+
+    setMyToys(data);
+    setLoading(false);
+  };
 
   useEffect(() => {
-    fetch(`http://localhost:3001/my-toys?email=${user?.email}`)
-      .then((res) => res.json())
-      .then((data) => {
-        setMyToys(data);
-        setLoading(false);
-      });
-  }, [user?.email]);
+    fetchToys();
+  }, []);
+
+  const handleSort = () => {
+    const sorted = isSorted ? "asc" : "desc";
+    fetchToys(sorted);
+    alert(`${isSorted} ${sorted}`);
+    return setIsSorted(!isSorted);
+  };
 
   const handleDelete = (_id) => {
     const proceed = confirm("Are Your sure you want to delete?");
@@ -41,10 +57,7 @@ const MyToys = () => {
     }
   };
 
-  const handleSort = () => {
-    alert("Sort");
-  };
-
+  useTitle('My Toys')
   return (
     <div>
       <header>

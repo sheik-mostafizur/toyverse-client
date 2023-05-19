@@ -1,6 +1,8 @@
 import {Link} from "react-router-dom";
 import errorImg from "../assets/Error-bro404.svg";
+import useTitle from "../hooks/useTitle";
 const ErrorPage = () => {
+  useTitle("404 Page not found");
   return (
     <div className="container mx-auto h-screen md:flex items-center justify-center">
       <div className="text-center my-8">

@@ -188,6 +188,7 @@ const AddForm = () => {
             onChange={setCategories}
             options={setCategoryOptions}
             isMulti
+            required
           />
         </div>
       </div>

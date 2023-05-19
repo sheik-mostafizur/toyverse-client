@@ -52,11 +52,12 @@ const ShowMyToys = ({myToys, handleDelete, handleSort}) => {
                     {toy_name}
                   </th>
                   <td className="px-6 py-4 max-w-md">
-                    {categories.map((category) => (
-                      <span key={_id + `${Math.random()}`}>
-                        {category.label},{" "}
-                      </span>
-                    ))}
+                    {categories &&
+                      categories.map((category) => (
+                        <span key={_id + `${Math.random()}`}>
+                          {category.label},{" "}
+                        </span>
+                      ))}
                   </td>
                   <td className="px-6 py-4">${price}</td>
                   <td className="px-6 py-4">{quantity}</td>
