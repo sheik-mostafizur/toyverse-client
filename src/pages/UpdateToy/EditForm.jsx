@@ -1,4 +1,4 @@
-import toast, {Toaster} from "react-hot-toast";
+import toast from "react-hot-toast";
 import {useForm} from "react-hook-form";
 import {uesAuthContext} from "../../context/AuthContext";
 import {useNavigate} from "react-router-dom";
@@ -42,7 +42,6 @@ const EditForm = ({loadedToy}) => {
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
-      <Toaster position="top-right" reverseOrder={false} />
       {errors.exampleRequired && <span>This field is required</span>}
       <div className="grid gap-6 mb-6 md:grid-cols-2">
         <div>

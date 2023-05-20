@@ -30,7 +30,6 @@ const Blog = () => {
       <section className="max-w-screen-xl mx-auto p-4 md:py-24 space-y-6">
         {blogData.map(({id, question, answer}) => (
           <div
-            data-aos="fade-up"
             key={id}
             className="card shadow-xl bg-primary-50">
             <div className="card-body">

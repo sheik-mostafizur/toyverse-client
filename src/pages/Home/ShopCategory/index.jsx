@@ -1,6 +1,6 @@
 import {Tab, TabList, TabPanel, Tabs} from "react-tabs";
 import "react-tabs/style/react-tabs.css";
-import toast, {Toaster} from "react-hot-toast";
+import toast from "react-hot-toast";
 import CategoryItem from "./CategoryItem";
 import {useEffect, useState} from "react";
 import LoaderSpinner from "../../../components/LoaderSpinner";
@@ -48,7 +48,6 @@ const ShopCategory = () => {
       <h1 className="font-bold text-3xl md:text-5xl text-center mb-8">
         Shop by category
       </h1>
-      <Toaster position="top-right" reverseOrder={false} />
 
       <Tabs>
         <TabList>

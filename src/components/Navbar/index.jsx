@@ -1,17 +1,20 @@
 import {useState} from "react";
 import {Tooltip} from "react-tooltip";
 import Logo from "../../assets/logo.png";
-import {Link, NavLink} from "react-router-dom";
+import {Link, NavLink, useNavigate} from "react-router-dom";
 import {uesAuthContext} from "../../context/AuthContext";
 
 const Navbar = () => {
   const {user, logOutUser} = uesAuthContext();
   const [toggleNav, setToggleNav] = useState(false);
   const [toggleProfilePic, setToggleProfilePic] = useState(false);
+  const navigate = useNavigate();
 
   const handleLogout = () => {
     logOutUser()
-      .then()
+      .then(() => {
+        navigate("/");
+      })
       .catch((error) => alert(error.message));
   };
 
