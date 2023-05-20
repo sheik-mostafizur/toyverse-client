@@ -10,7 +10,7 @@
 
 - 🌟ToyVerse🌟 is an exciting online toy shop that brings joy to both kids and adults. Here's a brief description of each page:
 
-- The website includes a home page, a blog page, login/logout and registration page functionality.
+- The website includes a home page, a blog page, All Toys login/logout, registration also added My Toys, Add a Toys page also more.
 
 - **Home**:  The Home page of ToyVerse welcomes visitors with a captivating banner, showcasing the latest promotions and offers. The Toy Gallery section displays a delightful array of toys, inviting users to explore various categories. With the "Shop by Category" feature, finding specific types of toys is a breeze. The page also features testimonials from satisfied customers, providing social proof. The footer contains additional links and information for easy navigation.
 
