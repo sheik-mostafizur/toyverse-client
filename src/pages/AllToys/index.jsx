@@ -30,10 +30,10 @@ const AllToys = () => {
   };
 
   useEffect(() => {
-    const baseURL = "http://localhost:3001/toys";
+    const baseURL = "https://toyverse.vercel.app/toys";
 
     const url = new URL(baseURL);
-    url.searchParams.append("toyName", searchToy);
+    url.searchParams.append("toyName", searchToy.trim());
     url.searchParams.append("page", currentPage);
     url.searchParams.append("limit", limit);
 
@@ -58,17 +58,18 @@ const AllToys = () => {
         </div>
         <nav className="flex flex-col items-center gap-4">
           <ul className="inline-flex items-center -space-x-px">
-            {pageNumbers.map((page) => (
-              <li key={page}>
-                <button
-                  className={
-                    page === currentPage ? pageItemActiveStyle : pageItemStyle
-                  }
-                  onClick={() => handlePagination(page)}>
-                  {page}
-                </button>
-              </li>
-            ))}
+            {pageNumbers &&
+              pageNumbers.map((page) => (
+                <li key={page}>
+                  <button
+                    className={
+                      page === currentPage ? pageItemActiveStyle : pageItemStyle
+                    }
+                    onClick={() => handlePagination(page)}>
+                    {page}
+                  </button>
+                </li>
+              ))}
           </ul>
         </nav>
       </section>

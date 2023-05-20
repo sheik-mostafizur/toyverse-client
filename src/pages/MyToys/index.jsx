@@ -6,6 +6,7 @@ import LoaderSpinner from "../../components/LoaderSpinner";
 import ShowMyToys from "./ShowMyToys";
 import {Link} from "react-router-dom";
 import {uesAuthContext} from "../../context/AuthContext";
+import swal from "sweetalert";
 import useTitle from "../../hooks/useTitle";
 
 const MyToys = () => {
@@ -16,7 +17,7 @@ const MyToys = () => {
 
   const fetchToys = async (sortOrder) => {
     const sortValue = sortOrder ? `&sortOrder=${sortOrder}` : "";
-    const URL = `http://localhost:3001/my-toys?email=${user?.email}${sortValue}`;
+    const URL = `https://toyverse.vercel.app/my-toys?email=${user?.email}${sortValue}`;
 
     const response = await fetch(URL);
     const data = await response.json();
@@ -36,23 +37,29 @@ const MyToys = () => {
   };
 
   const handleDelete = (_id) => {
-    const proceed = confirm("Are Your sure you want to delete?");
-
-    if (proceed) {
-      fetch(`http://localhost:3001/toy/${_id}/delete`, {
-        method: "DELETE",
-      })
-        .then((res) => res.json())
-        .then((data) => {
-          if (data.deletedCount > 0) {
-            const remainingToy = myToys.filter(
-              (booking) => booking._id !== _id
-            );
-            setMyToys(remainingToy);
-            toast.error("Delete Successfully!");
-          }
-        });
-    }
+    swal({
+      title: "Are you sure?",
+      text: "Once deleted, you will not be able to recover this toy product!",
+      icon: "warning",
+      buttons: true,
+      dangerMode: true,
+    }).then((willDelete) => {
+      if (willDelete) {
+        fetch(`https://toyverse.vercel.app/toy/${_id}/delete`, {
+          method: "DELETE",
+        })
+          .then((res) => res.json())
+          .then((data) => {
+            if (data.deletedCount > 0) {
+              const remainingToy = myToys.filter(
+                (booking) => booking._id !== _id
+              );
+              setMyToys(remainingToy);
+              toast.error("Delete Successfully!");
+            }
+          });
+      }
+    });
   };
 
   useTitle("My Toys");

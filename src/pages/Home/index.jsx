@@ -22,8 +22,8 @@ const Home = () => {
         <Banner />
       </header>
       <Gallery />
-      <PopularToy />
       <ShopCategory />
+      <PopularToy />
       <ClientSay />
       <Footer />
     </div>

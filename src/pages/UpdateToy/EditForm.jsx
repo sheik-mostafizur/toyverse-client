@@ -24,7 +24,7 @@ const EditForm = ({loadedToy}) => {
 
   // form handle here
   const onSubmit = (data) => {
-    fetch(`http://localhost:3001/toy/${_id}/edit`, {
+    fetch(`https://toyverse.vercel.app/toy/${_id}/edit`, {
       method: "PATCH",
       headers: {
         "content-type": "application/json",

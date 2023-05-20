@@ -14,7 +14,7 @@ const AddForm = () => {
 
   // form handle here
   const onSubmit = (data) => {
-    fetch("http://localhost:3001/toys", {
+    fetch("https://toyverse.vercel.app/toys", {
       method: "POST",
       headers: {
         "content-type": "application/json",

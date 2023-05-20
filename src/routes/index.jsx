@@ -28,7 +28,7 @@ const Routes = createBrowserRouter([
   {
     path: "/all-toys",
     element: <AllToys />,
-    loader: () => fetch(`http://localhost:3001/total-toys`),
+    loader: () => fetch(`https://toyverse.vercel.app/total-toys`),
   },
   {
     path: "/my-toys",
@@ -48,7 +48,7 @@ const Routes = createBrowserRouter([
   },
   {
     path: "/toy/:id",
-    loader: ({params}) => fetch(`http://localhost:3001/toy/${params.id}`),
+    loader: ({params}) => fetch(`https://toyverse.vercel.app/toy/${params.id}`),
     element: (
       <PrivateRoute>
         <Toy />
@@ -57,7 +57,7 @@ const Routes = createBrowserRouter([
   },
   {
     path: "/toy/:id/edit",
-    loader: ({params}) => fetch(`http://localhost:3001/toy/${params.id}`),
+    loader: ({params}) => fetch(`https://toyverse.vercel.app/toy/${params.id}`),
     element: (
       <PrivateRoute>
         <UpdateToy />

@@ -47,7 +47,7 @@ const Toy = () => {
             <b>Quantity:</b> {quantity}
           </p>
           <p>
-            <b>Categories:</b> {categories?.label}
+            <b>Categories:</b> {categories}
           </p>
           <p>
             <b>Description:</b> {description}

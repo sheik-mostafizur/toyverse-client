@@ -23,7 +23,7 @@ const ShopCategory = () => {
   };
 
   useEffect(() => {
-    fetch("http://localhost:3001/toys")
+    fetch("https://toyverse.vercel.app/toys")
       .then((res) => res.json())
       .then((data) => {
         const uniqueCategories = data.reduce((accumulator, item) => {
