@@ -1,10 +1,10 @@
-# b7a11-toy-marketplace-client-side-sheik-mostafizur
+# b7a11-toy-marketplace-client
 
 **Live Link:** [Goto Website!](https://module-auth-7c320.web.app/)
 
-**Client Side:** [Goto Github!](https://github.com/programming-hero-web-course-4/b7a11-toy-marketplace-client-side-sheik-mostafizur.git)
+**Client Side:** [Goto Github!](https://github.com/sheik-mostafizur/toyverse-client.git)
 
-**Server Side:** [Goto Github!](https://github.com/programming-hero-web-course-4/b7a11-toy-marketplace-server-side-sheik-mostafizur.git)
+**Server Side:** [Goto Github!](https://github.com/sheik-mostafizur/toyverse-server.git)
 
 # 🌟ToyVerse🌟
 
