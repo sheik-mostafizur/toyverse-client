@@ -6,7 +6,7 @@
 
 **Server Side:** [Goto Github!](https://github.com/programming-hero-web-course-4/b7a11-toy-marketplace-server-side-sheik-mostafizur.git)
 
-# 🌟Recipe Master🌟
+# 🌟ToyVerse🌟
 
 - 🌟ToyVerse🌟 is an exciting online toy shop that brings joy to both kids and adults. Here's a brief description of each page:
 
